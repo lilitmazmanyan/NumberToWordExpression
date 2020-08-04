@@ -5,7 +5,7 @@ public class convertNumberToWords {
     private static final String[] TVANSHANNER = {"", " մեկ", " երկու", " երեք", " չորս", " հինգ", " վեց", " յոթ",
             " ութ", " ինը", " տասը"};
 
-    private static final String[] OTHERS = {"", " հազար", " միլիոն", " բիլիոն", " տրիլիոն"};
+    private static final String[] OTHERS = {"", " հազար", " միլիոն", " տրիլիոն", " բիլիոն"};
 
     /**
      * Converts numbers less than 1000
@@ -16,7 +16,8 @@ public class convertNumberToWords {
     private static String convertLessThanThousand(int number) {
         String result;
 
-        if (number % 100 <= 10) {
+        if (number == 10) return "տասը";
+        if (number % 100 < 10) {
             result = TVANSHANNER[number % 10];
             number /= 100;
         } else if (number % 100 < 20) {
@@ -63,7 +64,4 @@ public class convertNumberToWords {
         return (prefix + result).trim();
     }
 
-   
 }
-
-
